@@ -12,12 +12,18 @@ const _sfc_main = {
   setup(__props) {
     const homeStore = store_home_home.userHomeStore();
     const { bannerList, recommendList } = common_vendor.storeToRefs(homeStore);
+    function handleSwiperItem(item) {
+      common_vendor.index.navigateTo({
+        url: "/pages/webView/webView?link=" + item.link
+      });
+    }
     common_vendor.onLoad(() => {
       homeStore.fetchHomeMultdata();
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.p({
+        a: common_vendor.o(handleSwiperItem),
+        b: common_vendor.p({
           bannerList: common_vendor.unref(bannerList)
         })
       };

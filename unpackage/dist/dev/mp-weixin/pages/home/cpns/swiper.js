@@ -22,7 +22,8 @@ const _sfc_main = {
             b: common_vendor.o(($event) => handleSwiperItem(item), item),
             c: item
           };
-        })
+        }),
+        b: _ctx.ff8198
       };
     };
   }

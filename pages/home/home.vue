@@ -1,6 +1,8 @@
 <template>
 	<view>
-		<SwiperCpns :bannerList='bannerList'/>
+		<SwiperCpns :bannerList='bannerList'
+					@handleSwiperItem='handleSwiperItem'
+		/>
 	</view>
 </template>
 
@@ -11,8 +13,15 @@
 	import SwiperCpns  from '@/pages/home/cpns/swiper.vue'
 	const homeStore = userHomeStore()
 	const {bannerList, recommendList} = storeToRefs(homeStore)
+	
+	function handleSwiperItem(item){
+		uni.navigateTo({
+			url:'/pages/webView/webView?link=' + item.link
+		})
+	}
 	onLoad(()=>{
 		homeStore.fetchHomeMultdata()
+	
 	})
 
 </script>

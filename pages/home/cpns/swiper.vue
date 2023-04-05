@@ -1,5 +1,5 @@
 <template>
-	<swiper :autoplay="true">
+	<swiper :autoplay="true" :indicator-active-color="ff8198" :indicator-dots="true">
 		<template v-for="item in bannerList" :key="item">
 			<swiper-item @click="handleSwiperItem(item)">
 				<image class="image" :src="item.image" mode="widthFix"></image>
